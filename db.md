@@ -1,3 +1,8 @@
+* JPA (Java Persistence API)
+* Hibernate which implements JPA
+* Oracle's own implementation of JPA
+
+
 ```sql
 create database training;
 ```
