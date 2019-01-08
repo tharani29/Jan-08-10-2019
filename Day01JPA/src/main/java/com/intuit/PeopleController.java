@@ -1,5 +1,9 @@
 package com.intuit;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,17 +19,41 @@ public class PeopleController {
 	@Autowired
 	private PersonRepository personRepository;
 	
+	@GetMapping("/all")
+	public List<Person> getAll() {
+		List<Person> persons = new ArrayList<>();
+		personRepository.findAll()
+						.forEach(p -> persons.add(p));
+		return persons;
+	}
+	
 	@PutMapping("/updateage/{id}/{newage}")
-	public Person updateAge(@PathVariable int id, 
+	public Object updateAge(@PathVariable int id, 
 			@PathVariable("newage") int newAge) {
-		//IMPLEMENT THIS
-		return null;
+		Optional<Person> personOpt = personRepository.findById(id);
+		Person person = null;
+		if(personOpt.isPresent()) {
+			person = personOpt.get();
+			person.setAge(newAge);
+			personRepository.save(person);
+		}
+		else {
+			return "Person with id " + id + " does not exist";
+		}
+		return person;
 	}
 	
 	@GetMapping("/{id}")
-	public Person getPerson(@PathVariable int id) {
-		//IMPLEMENT THIS
-		return null;
+	public Object getPerson(@PathVariable int id) {
+		Optional<Person> personOpt = personRepository.findById(id);
+		Person person = null;
+		if(personOpt.isPresent()) {
+			person = personOpt.get();
+		}
+		else {
+			return "Person with id " + id + " does not exist";
+		}
+		return person;
 	}
 	
 	@PostMapping("/save/{name}/{age}")
