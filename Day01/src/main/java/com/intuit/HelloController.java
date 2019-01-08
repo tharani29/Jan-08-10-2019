@@ -18,12 +18,12 @@ public class HelloController {
 		return "Hi " + firstName + " " + lastName;
 	}
 	
-	//http://localhost:8080/Sam
-	@GetMapping("/{name}")
-	@ResponseBody
-	public String greet(@PathVariable("name") String name) {
-		return "Hello " + name;
-	}
+//	//http://localhost:8080/Sam
+//	@GetMapping("/{name}")
+//	@ResponseBody
+//	public String greet(@PathVariable("name") String name) {
+//		return "Hello " + name;
+//	}
 	
 	@PostMapping("/bye/{name}")
 	@ResponseBody
