@@ -1,5 +1,8 @@
 package com.intuit;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +20,20 @@ public class CalcController {
 
 	@Autowired
 	private Calculator calculator;
+	
+	@Autowired
+	private List<String> operations; // = Arrays.asList("add", "subtract", "square", "product");
+	
+	
+	@GetMapping("/info")
+	public Info getInfo() {
+		return new Info("Spring Boot", 3, "Prabhu");
+	}
+	
+	@GetMapping("/operations")
+	public List<String> listOperations() {
+		return operations;
+	}
 	
 	@GetMapping("/add/{number1}/{number2}")
 	public int add(@PathVariable int number1, @PathVariable int number2) {
