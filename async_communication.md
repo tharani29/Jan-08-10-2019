@@ -1,4 +1,4 @@
-### Asynchronous communication
+## Asynchronous communication
 
 * Let's implement two Spring Boot applications that communicate with each other asynchronously using Queues
 * One application sends out a stock symbol say GOOG, INFY, FB
