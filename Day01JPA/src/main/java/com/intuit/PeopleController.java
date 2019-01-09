@@ -21,6 +21,10 @@ public class PeopleController {
 	
 	@GetMapping("/all/agegreater/{age}")
 	public List<Person> getAllPersonsWithAgeGreaterThan(@PathVariable int age) {
+		System.out.println("****** " + personRepository.getClass().getName());
+		for (Class cls : personRepository.getClass().getInterfaces()) {
+			System.out.println("--- " + cls.getName());
+		};
 		return personRepository.getAllWithAgeGreaterThan(age);
 	}
 	
