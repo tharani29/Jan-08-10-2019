@@ -19,6 +19,37 @@ public class PeopleController {
 	@Autowired
 	private PersonRepository personRepository;
 	
+	@GetMapping("/all/agegreater/{age}")
+	public List<Person> getAllPersonsWithAgeGreaterThan(@PathVariable int age) {
+		return personRepository.getAllWithAgeGreaterThan(age);
+	}
+	
+	@GetMapping("/all/name/{name}/age/{age}")
+	public List<Person> getAllPersonsForNameAndAge(@PathVariable String name, 
+			@PathVariable int age) {
+		return personRepository.findAllByNameAndAge(name, age);
+	}
+	
+	@GetMapping("/name/{name}/age/{age}")
+	public Person getPersonForNameAndAge(@PathVariable String name, 
+			@PathVariable int age) {
+		return personRepository.findByNameAndAge(name, age);
+	}
+	
+	@GetMapping("/id/{id}/age/{age}")
+	public Person getPersonForIdAndAge(@PathVariable int id, 
+			@PathVariable int age) {
+		return personRepository.findByIdAndAge(id, age);
+	}
+	
+	@GetMapping("/id/{id}/name/{name}")
+	public Person getPersonForIdAndName(@PathVariable int id, 
+			@PathVariable String name) {
+		return personRepository.findByIdAndName(id, name);
+	}
+	
+	
+	
 	@GetMapping("/all")
 	public List<Person> getAll() {
 		List<Person> persons = new ArrayList<>();
