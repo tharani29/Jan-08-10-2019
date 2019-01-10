@@ -15,10 +15,19 @@ public class UIController {
 	@Autowired
 	private WordUtil wordUtil;
 	
+	@Autowired
+	private UtilService utilService;
 	
 	@GetMapping("/")
 	public String index() {
 		return "index";
+	}
+	
+	
+	@GetMapping("/datetime")
+	@ResponseBody
+	public String getDateTime() {
+		return utilService.getDateTime();
 	}
 	
 	@GetMapping("/anagram/{word}")

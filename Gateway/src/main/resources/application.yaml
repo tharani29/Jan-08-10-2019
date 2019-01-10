@@ -3,6 +3,9 @@ server:
 zuul:
   prefix: /api  
   routes:
+    datetime:
+      path: /d/**
+      url: http://localhost:2000/datetime
     palindrome:
       path: /p/**
       url: http://localhost:3000/palindrome

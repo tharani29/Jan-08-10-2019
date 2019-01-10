@@ -2,7 +2,12 @@
 	<head>
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script>
+			let fetchDateTime = () => {
+				$("#datetimemessage").load("/datetime");
+			};
+			
 			$().ready(() => {
+				window.setInterval("fetchDateTime()",1000);
 				
 				$("#palindromebutton").on("click", () => {
 					let word = $("#wordforpalindrome").val();
@@ -18,6 +23,8 @@
 		</script>
 	</head>
 	<body>
+		<h3 id="datetimemessage"></h3>
+		<hr/>
 		<h1>Word Activity</h1>
 		<input type="text" placeholder="Word" id="wordforpalindrome">
 		<br/>
