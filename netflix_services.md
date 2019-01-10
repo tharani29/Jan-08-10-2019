@@ -27,6 +27,11 @@
 			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 			<version>2.0.1.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+			<version>2.0.1.RELEASE</version>
+		</dependency>
 ```
 
 
