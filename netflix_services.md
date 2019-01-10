@@ -35,15 +35,17 @@
 ```
 ### Hystrix Dashboard
 
-* In application.properties in UI add this line
+* In **application.properties** in UI add this line
 * management.server.port=9000
 
-* http://localhost:8080/hystrix
-* In the textbox enter http://localhost:9000/acutator/hystrix.stream and click monitor
+* Go to http://localhost:8080/hystrix
+* In the textbox below, enter http://localhost:9000/acutator/hystrix.stream and click monitor
 * You can see the dashboard
 
 
 * Open http://localhost:8080 in a separate tab and access the services
+
+
 
 
 
