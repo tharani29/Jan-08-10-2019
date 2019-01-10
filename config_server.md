@@ -17,13 +17,61 @@ spring.profiles.active=native
 #### Setting up Config Client
 
 * Open PalindromeApp/pom.xml, AnagramApp/pom.xml, DateTimeApp/pom.xml
-* Add the following dependency
+* Add the following after description elementin pom.xml
 
 ```xml
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
-		</dependency>
+
+		<properties>
+			<java.version>1.8</java.version>
+			<spring-cloud.version>Greenwich.RC2</spring-cloud.version>
+		</properties>
+
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-web</artifactId>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-starter-config</artifactId>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-test</artifactId>
+				<scope>test</scope>
+			</dependency>
+		</dependencies>
+
+		<dependencyManagement>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-dependencies</artifactId>
+					<version>${spring-cloud.version}</version>
+					<type>pom</type>
+					<scope>import</scope>
+				</dependency>
+			</dependencies>
+		</dependencyManagement>
+
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+				</plugin>
+			</plugins>
+		</build>
+
+		<repositories>
+			<repository>
+				<id>spring-milestones</id>
+				<name>Spring Milestones</name>
+				<url>https://repo.spring.io/milestone</url>
+			</repository>
+		</repositories>
+		
 ```
 
 * Rename **application.properties** to **bootstrap.properties** file in *resources* folder
