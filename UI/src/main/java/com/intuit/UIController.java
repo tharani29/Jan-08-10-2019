@@ -36,7 +36,8 @@ public class UIController {
 	@ResponseBody
 	@HystrixCommand(fallbackMethod="getPalindromeFallback"
 		,commandProperties= {
-				@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", value="4000")
+				@HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds", 
+						value="4000")
 		})
 	public String getPalindrome(@PathVariable String word) {
 		System.out.println("***calling getPalindrome method");
