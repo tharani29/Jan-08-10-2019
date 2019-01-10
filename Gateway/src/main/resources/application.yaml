@@ -1,0 +1,13 @@
+server:
+  port: 5000
+zuul:
+  prefix: /api  
+  routes:
+    palindrome:
+      path: /p/**
+      url: http://localhost:3000/palindrome
+    anagram:
+      path: /a/**
+      url: http://localhost:4000/anagram    
+      
+     
