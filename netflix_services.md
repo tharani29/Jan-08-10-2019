@@ -39,15 +39,25 @@
 * management.server.port=9000
 
 * Go to http://localhost:8080/hystrix
-* In the textbox below, enter http://localhost:9000/acutator/hystrix.stream and click monitor
+* In the textbox below, enter http://localhost:9000/actuator/hystrix.stream and click monitor
 * You can see the dashboard
 
 
 * Open http://localhost:8080 in a separate tab and access the services
 
 
+### Actuator
 
+* In **application.properties** in UI add these lines
 
+```
+management.endpoint.beans.enabled=true
+management.endpoint.health.show-details=ALWAYS
+management.endpoint.env.enabled=true
+management.endpoint.shutdown.enabled=true
+management.endpoints.web.exposure.include=*
+spring.jackson.serialization.INDENT_OUTPUT=true
+```
 
 
 
